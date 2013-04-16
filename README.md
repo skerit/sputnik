@@ -60,13 +60,19 @@ all the 'after' functions will be called.
 
 Otherwise it'll wait for the last wait() callback.
 
-### before(stageName, function[, order]) & after(stageName, function[, order])
+### before(stageName, function[, order])
 
 Run code before a stage begins, or after it ends.
 
 When no order is given, the default value of 10 is used.
 
 The lower the order, the faster it'll be executed.
+
+### after(stageName, function[, order])
+
+The same as before(), except that the stageName parameter can be an array of stage names.
+
+The function will then only be executed when all of the stages has finished.
 
 ### launch([order, others])
 
