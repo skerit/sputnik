@@ -1,7 +1,9 @@
 {
   "name": "sputnik",
-  "description": "Stage based flow control",
+  "description": "Stage based flow control for booting a server",
   "version": "0.0.1",
+	"author": "Jelle De Loecker <jelle@kipdola.be>",
+	"keywords": ["flow-control", "bootstrap", "boot", "flow"],
 	"repository": {
     "type": "git",
     "url": "git://github.com/skerit/sputnik.git"
