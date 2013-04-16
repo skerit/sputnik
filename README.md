@@ -1,6 +1,10 @@
 # Sputnik
 
-Stage based flow control, used for bootstrapping a server.
+Stage based flow control, used for bootstrapping a Node.js server.
+
+The stages themselves are executed in parallel.
+
+The before, defined & after functions are executed serially, per stage.
 
 ## Installation
 
@@ -63,3 +67,15 @@ Run code before a stage begins, or after it ends.
 When no order is given, the default value of 10 is used.
 
 The lower the order, the faster it'll be executed.
+
+### launch([order, others])
+
+Begin all the stages that have not yet been started.
+
+You can pass the an array containing stage names.
+They will then be started in said order.
+
+When the 'others' parameter is true or undefined, any remaining stage will be
+started in order of appearance.
+
+If it's false, it will be ignored.
