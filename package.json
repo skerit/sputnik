@@ -1,0 +1,13 @@
+{
+  "name": "sputnik",
+  "description": "Stage based flow control",
+  "version": "0.0.1",
+	"repository": {
+    "type": "git",
+    "url": "git://github.com/skerit/sputnik.git"
+  },
+	"license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}
