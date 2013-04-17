@@ -1,7 +1,7 @@
 {
   "name": "sputnik",
   "description": "Stage based flow control for booting a server",
-  "version": "0.0.1",
+  "version": "0.0.2",
 	"author": "Jelle De Loecker <jelle@kipdola.be>",
 	"keywords": ["flow-control", "bootstrap", "boot", "flow"],
 	"repository": {

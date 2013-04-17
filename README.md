@@ -38,6 +38,10 @@ Define a stage function, but do not begin it just yet.
 			// Do some stuff
     });
 
+### getStage(stageName)
+
+Get a stage. Define it (as empty) if it doesn't exist yet.
+
 ### begin(stageName)
 
 Begin the stage:
