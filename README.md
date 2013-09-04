@@ -28,15 +28,19 @@ you want.
 
 Create a new Sputnik
 
-    var sputnik = new Sputnik();
+```js
+var sputnik = new Sputnik();
+```
 
 ### defineStage(stageName, function)
 
 Define a stage function, but do not begin it just yet.
 
-    sputnik.defineStage('datasources', function() {
-			// Do some stuff
-    });
+```js
+sputnik.defineStage('datasources', function() {
+	// Do some stuff
+});
+```
 
 ### getStage(stageName)
 
@@ -55,17 +59,19 @@ Make a stage wait from ending.
 
 This function returns a callback that needs to be executed when the waiting is over.
 
-    // Create a database connection (this example was originally run in a loop)
-    (function (name, sputnikWaiter) {
-      
-      db[name].connect(e, function() {
-      
-        // Tell sputnik this connection has been made
-        sputnikWaiter();
-        
-      });
-      
-    })(name, sputnik.wait('datasources'));
+```js
+// Create a database connection (this example was originally run in a loop)
+(function (name, sputnikWaiter) {
+  
+  db[name].connect(e, function() {
+  
+    // Tell sputnik this connection has been made
+    sputnikWaiter();
+    
+  });
+  
+})(name, sputnik.wait('datasources'));
+```
 
 ### end(stageName)
 
@@ -84,29 +90,57 @@ When no order is given, the default value of 10 is used.
 
 The lower the order, the faster it'll be executed.
 
-    sputnik.before('datasources', function() {
-      // This will run before the main datasources code
-    );
+```js
+sputnik.before('datasources', function() {
+  // This will run before the main datasources code
+);
+```
 
 Should the stage have already begun, the function will be executed immediately,
 though a warning will be printed out to the console.
+
+
+### beforeSerial(stageName, function[, order])
+
+Run an asynchronous function before a stage begins, and make that stage wait for a callback.
+
+When no order is given, the default value of 10 is used.
+
+The lower the order, the faster it'll be executed.
+
+```js
+sputnik.beforeSerial('datasources', function(callback) {
+  // This will run before the main datasources code
+  myAsyncFunction(function() {
+    callback();
+  });
+);
+```
+
+Should the stage have already begun, the function will be executed immediately,
+though a warning will be printed out to the console.
+
 
 ### after(stageName, function[, order])
 
 Similar to before()
 
-    sputnik.after('datasources', function() {
-      // This will only run after datasources has ended,
-      // and all its waiter callbacks (if any) have, actually, called back.
-    );
+```js
+sputnik.after('datasources', function() {
+  // This will only run after datasources has ended,
+  // and all its waiter callbacks (if any) have, actually, called back.
+);
+```
 
 The stageName parameter can be an array of stage names,
 then the function will then only be executed when all of the stages has finished.
 
-    sputnik.after(['init', 'datasources', 'startServer'], function() {
-      // This will only run after init, datasources & startServer have ended,
-      // and all their waiter callbacks (if any) have, actually, called back.
-    );
+```js
+sputnik.after(['init', 'datasources', 'startServer'], function() {
+  // This will only run after init, datasources & startServer have ended,
+  // and all their waiter callbacks (if any) have, actually, called back.
+);
+```
 
 ### launch([order, others])
 
@@ -117,12 +151,14 @@ then the function will then only be executed when all of the stages has finished
 You can pass the an array containing stage names.
 They will then be started in said order.
 
-    sputnik.launch([
-      'init',
-      'plugins',
-      'datasources',
-      'startServer'
-    ]);
+```js
+sputnik.launch([
+  'init',
+  'plugins',
+  'datasources',
+  'startServer'
+]);
+```
 
 When the 'others' parameter is true or undefined, any remaining stage will be
 started in order of appearance.
