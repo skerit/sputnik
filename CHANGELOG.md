@@ -1,3 +1,9 @@
+## 0.0.6 (2014-09-04)
+
+* Functions queued *after* a prevented stage will now run as they should
+* Arrays are now sorted correctly
+* Removed some 'i in Array' loops
+
 ## 0.0.5 (2014-09-04)
 
 * Fixed a bug where functions queued with #after would run, even if that stage
