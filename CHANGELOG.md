@@ -1,3 +1,7 @@
+## 0.1.0 (WIP)
+
+* Seriously simplify the code
+
 ## 0.0.6 (2014-09-04)
 
 * Functions queued *after* a prevented stage will now run as they should
