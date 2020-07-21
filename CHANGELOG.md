@@ -1,6 +1,7 @@
-## 0.1.0 (WIP)
+## 0.1.0 (2020-07-21)
 
 * Seriously simplify the code
+* Add `before()` support again
 
 ## 0.0.6 (2014-09-04)
 

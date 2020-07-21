@@ -2,12 +2,12 @@
 	"name": "sputnik",
 	"description": "Stage based flow control for booting a server",
 	"version": "0.1.0",
-	"author": "Jelle De Loecker <jelle@develry.be>",
+	"author": "Jelle De Loecker <jelle@elevenways.be>",
 	"keywords": ["flow-control", "bootstrap", "boot", "flow"],
 	"main": "lib/bootstrap.js",
 	"repository": "skerit/sputnik",
 	"dependencies": {
-		"protoblast" : ">=0.6.4"
+		"protoblast" : "~0.7.2"
 	},
 	"license": "MIT",
 	"engines": {
